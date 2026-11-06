@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GP Atlas AU</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+  <header><div class="brand"><span class="brand-mark">◉</span><strong>GP Atlas AU</strong><span>Practice explorer</span></div><div class="header-meta">⌖ Australian practice intelligence　ⓘ</div></header>
+  <main>
+    <div class="title-row"><div><h1>Practice explorer</h1><p>Find, explore and export general practices across Australia.</p></div><div class="total"><strong id="headline-total">0</strong><span>total records · Australia</span></div></div>
+    <section class="toolbar" aria-label="Search">
+      <label class="wide">Practice or location<input id="q" placeholder="⌕  Search name, suburb or address"></label>
+      <label>State / territory<select id="state"><option value="">All states</option></select></label>
+      <label>Postcode<input id="postcode" inputmode="numeric" maxlength="4" placeholder="Any postcode"></label>
+      <label>Sort by<select id="sort-by"><option value="name">Practice name</option><option value="address">Address</option><option value="suburb">Suburb</option><option value="state">State</option><option value="postcode">Postcode</option></select></label>
+      <label>Order<select id="sort-dir"><option value="asc">A–Z</option><option value="desc">Z–A</option></select></label>
+      <button id="search">Search practices</button>
+      <div class="filter-summary" id="filter-summary"></div><button id="reset" class="link-button" type="button">Reset filters</button>
+    </section>
+    <section class="ask"><span class="spark">✣</span><div><strong>Search in your own words</strong><small>Ask AI to help build your filters.</small></div><input id="question" placeholder="Find practices in NSW"><button id="ask">→　Ask AI</button><span id="ask-status"></span></section>
+    <section class="stats" id="stats"></section>
+    <div class="workspace"><section class="results-panel"><div class="panel-head"><div><strong id="result-count">0 practices found</strong><small id="result-subtitle"></small></div><a class="button secondary" href="/api/practices/export.csv" id="export">⇩　Export CSV</a></div><p id="status" role="status"></p><table><thead><tr><th>PRACTICE NAME</th><th>LOCATION</th><th>MAP STATUS</th><th></th></tr></thead><tbody id="rows"></tbody></table><div class="table-foot"><span id="showing"></span><nav><button id="prev">‹</button><span id="page"></span><button id="next">›</button></nav></div></section><section class="map-panel"><div class="map-head"><strong id="map-title">Australia</strong><button class="expand">⛶</button></div><div id="map" aria-label="Practice map"></div><p id="map-status"></p></section></div>
+    <p id="source-info" class="notice"></p>
+  </main>
+  <aside id="drawer" hidden><button id="close" aria-label="Close">×</button><h2 id="detail-name"></h2><p id="detail-address"></p><section id="details"></section><div class="actions"><button id="find">Find website</button><button id="outreach">Draft outreach</button></div><div id="website-tools"><label>Paste a URL <input id="manual-url" type="url" placeholder="https://clinic.example"></label><button id="enrich">Enrich confirmed URL</button></div><label id="draft-label" hidden>AI-generated draft, review before use<textarea id="draft-text"></textarea><button id="copy-draft">Copy to clipboard</button></label><p id="ai-status" role="status"></p><pre id="ai-output"></pre></aside>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="/static/app.js"></script>
+</body>
+</html>
